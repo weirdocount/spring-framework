@@ -6,8 +6,9 @@ _Within your locally cloned spring-framework working directory:_
 
 1. Precompile `spring-oxm` with `./gradlew :spring-oxm:compileTestJava`
 2. Import into IntelliJ (File -> New -> Project from Existing Sources -> Navigate to directory -> Select build.gradle)
-3. When prompted exclude the `spring-aspects` module (or after the import via File-> Project Structure -> Modules)
-4. Code away
+3. 如果导入不了的话，就取消gradle的offline模式
+4. When prompted exclude the `spring-aspects` module (or after the import via File-> Project Structure -> Modules)
+5. Code away
 
 ## Known issues
 
