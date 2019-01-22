@@ -132,6 +132,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
         // 从配置文件地址中，加载 BeanDefinition 们
 		String[] configLocations = getConfigLocations();
 		if (configLocations != null) {
+			//和上面长的好像，其实质就是，通过配置地址找到Resource[]，然后再调上面的代码进行解析
 			reader.loadBeanDefinitions(configLocations);
 		}
 	}
