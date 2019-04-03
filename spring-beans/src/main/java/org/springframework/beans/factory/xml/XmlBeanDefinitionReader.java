@@ -357,6 +357,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			// 从 EncodedResource 获取封装的 Resource ，并从 Resource 中获取其中的 InputStream
 			InputStream inputStream = encodedResource.getResource().getInputStream();
 			try {
+				// 利用输入流构造InputSource, InputSource是第三方org.xml.sax包下的，
+				// 利用SAX读取XML文件方式准备InputSource
 				InputSource inputSource = new InputSource(inputStream);
 				if (encodedResource.getEncoding() != null) { // 设置编码
 					inputSource.setEncoding(encodedResource.getEncoding());
@@ -447,7 +449,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 	/**
 	 * 获取 XML Document 实例
-	 * <p>
+	 * 1。getValidationModeForResource(resource) 获取对XML文件的验证模式；
+	 * 2。DocumentLoader.loadDocument() 加载XML文件，获得对应的Document；
+	 * 3。registerBeanDefinitions(doc, resource) 根据返回的Document注册Bean信息。
 	 * Actually load the specified document using the configured DocumentLoader.
 	 *
 	 * @param inputSource the SAX InputSource to read from
@@ -458,11 +462,13 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	 * @see DocumentLoader#loadDocument
 	 */
 	protected Document doLoadDocument(InputSource inputSource, Resource resource) throws Exception {
+		// 委托DocumentLoader对象的loadDocument方法获取Document
 		return this.documentLoader.loadDocument(inputSource, getEntityResolver(), this.errorHandler,
 				getValidationModeForResource(resource), isNamespaceAware());
 	}
 
 	/**
+	 * 通过查看xml文件是否含有'DOCTYPE'判断是否是DTD模式
 	 * Determine the validation mode for the specified {@link Resource}.
 	 * If no explicit validation mode has been configured, then the validation
 	 * mode gets {@link #detectValidationMode detected} from the given resource.
