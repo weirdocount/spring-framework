@@ -24,7 +24,7 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.lang.Nullable;
 
 /**
- * BeanFactory 配置清单，指定忽略类型及接口等
+ * BeanFactory 配置清单，指定忽略依赖的类或接口等
  * Configuration interface to be implemented by most listable bean factories.
  * In addition to {@link ConfigurableBeanFactory}, it provides facilities to
  * analyze and modify bean definitions, and to pre-instantiate singletons.
@@ -44,14 +44,14 @@ public interface ConfigurableListableBeanFactory
 		extends ListableBeanFactory, AutowireCapableBeanFactory, ConfigurableBeanFactory {
 
 	/**
-	 * Ignore the given dependency type for autowiring:
+	 * 自动装配时忽略指定的类型:
 	 * for example, String. Default is none.
 	 * @param type the dependency type to ignore
 	 */
 	void ignoreDependencyType(Class<?> type);
 
 	/**
-	 * Ignore the given dependency interface for autowiring.
+	 * 自动装配时忽略指定的接口（http://yangbolin.cn/2016/11/12/spring-work-01/ https://www.jianshu.com/p/3c7e0608ff1f）
 	 * <p>This will typically be used by application contexts to register
 	 * dependencies that are resolved in other ways, like BeanFactory through
 	 * BeanFactoryAware or ApplicationContext through ApplicationContextAware.
