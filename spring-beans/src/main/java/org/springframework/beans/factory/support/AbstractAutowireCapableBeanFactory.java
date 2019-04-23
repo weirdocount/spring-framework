@@ -501,7 +501,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		try {
-			// 对BeanDefinition中的属性做些前置处理，给BeanPostProcessors一个机会来返回代理来替代真正的实例
+			// 对BeanDefinition中的属性做些前置处理，给BeanPostProcessors
+			// 一个机会来返回代理来替代真正的实例
 			Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
 			// 如果前置处理返回的不为空，则直接返回（AOP功能就是这里判断的），否则需要进行常规bean的创建
 			if (bean != null) {

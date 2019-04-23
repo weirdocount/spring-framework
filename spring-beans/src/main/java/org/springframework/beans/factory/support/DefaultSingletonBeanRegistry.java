@@ -177,8 +177,9 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 
 	/**
 	 * 首先尝试从缓存singletonObjects获取实例，如果获取不到再从earlySingletonObjects获取
-	 * 如果还是获取不到，再从singletonFactories中获取beanName对应的ObjectFactory，然后调用这个ObjectFactory的getObject方法
-	 * 来创建bean，并放到earlySingletonObjects，并从singletonFactories移除掉这个ObjectFactory
+	 * 如果还是获取不到，再从singletonFactories中获取beanName对应的ObjectFactory，
+	 * 然后调用这个ObjectFactory的getObject方法来创建bean，并放到earlySingletonObjects，
+	 * 并从singletonFactories移除掉这个ObjectFactory
 	 *
 	 * Return the (raw) singleton object registered under the given name.
 	 * <p>Checks already instantiated singletons and also allows for an early

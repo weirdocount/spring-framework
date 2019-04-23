@@ -12,6 +12,7 @@
 	</bean>
 
 	<bean id="c" class="guo.ping.ioc.circledependency.C">
+		<constructor-arg ref="a" />
 	</bean>
 
 	<bean id="f" class="guo.ping.ioc.circledependency.F">
