@@ -43,4 +43,9 @@ public class ActorServiceImpl implements IActorService {
 	public Integer getActorsCount() {
 		return jdbcTemplate.queryForObject("select count(*) from actor", Integer.class);
 	}
+
+	@Override
+	public void updateActoe(String userName, Integer id) {
+		jdbcTemplate.update("update actor set first_name = ? where id = ?", new Object[]{userName, id});
+	}
 }

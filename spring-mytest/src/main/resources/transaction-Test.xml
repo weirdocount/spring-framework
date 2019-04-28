@@ -11,6 +11,15 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<bean id="actorTestService" class="guo.ping.transaction.ActorTestService">
+		<property name="actorService" ref="actorService" />
+		<property name="actorTestService1" ref="actorTestService1" />
+	</bean>
+
+	<bean id="actorTestService1" class="guo.ping.transaction.ActorTestService1">
+		<property name="actorService" ref="actorService" />
+	</bean>
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -20,9 +29,9 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/sakila" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/test" />
 		<property name="username" value="root" />
-		<property name="password" value="1234" />
+		<property name="password" value="root" />
 
 		<!--连接池启动时的初始值-->
 		<property name="initialSize" value="1" />

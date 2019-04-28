@@ -501,7 +501,8 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 	}
 
 	/**
-	 * 准备事务信息。当已经建立事务连接并完成了事务信息的提取后，我们需要将所有的事务信息统一记录在TransactionInfo类型的实例中
+	 * 准备事务信息。当已经建立事务连接并完成了事务信息的提取后，
+	 * 我们需要将所有的事务信息统一记录在TransactionInfo类型的实例中
 	 * Prepare a TransactionInfo for the given attribute and status object.
 	 * @param txAttr the TransactionAttribute (may be {@code null})
 	 * @param joinpointIdentification the fully qualified method name

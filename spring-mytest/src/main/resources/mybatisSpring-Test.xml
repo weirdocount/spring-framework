@@ -25,10 +25,10 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<!--<bean id="actorMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-		<!--<property name="mapperInterface" value="guo.ping.mybatis.IActorMapper"/>-->
-		<!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
-	<!--</bean>-->
+	<bean id="actorMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="guo.ping.mybatis.IActorMapper"/>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="guo.ping.mybatis" />
