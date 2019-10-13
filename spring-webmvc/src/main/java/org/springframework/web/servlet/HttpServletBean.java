@@ -166,7 +166,7 @@ public abstract class HttpServletBean extends HttpServlet implements Environment
 
 				// 空实现，留给子类覆盖
 				initBeanWrapper(bw);
-				// 属性注入
+				// 重要！！属性注入,通过封装反射把对应的值赋值给this
 				bw.setPropertyValues(pvs, true);
 			}
 			catch (BeansException ex) {

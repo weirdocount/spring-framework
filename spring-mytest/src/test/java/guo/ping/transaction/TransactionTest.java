@@ -39,7 +39,7 @@ public class TransactionTest {
 	public void testTx() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("transaction-Test.xml");
 		ActorTestService actorTestService = (ActorTestService) context.getBean("actorTestService");
-		actorTestService.testTwoUpdate("hello121");
+//		actorTestService.testTwoUpdate("hello121");
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class TransactionTest {
 	public void testTx1() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("transaction-Test.xml");
 		ActorTestService1 actorTestService = (ActorTestService1) context.getBean("actorTestService1");
-//		actorTestService.updateNameWithTxNested("haha11",7);
+//		actorTestService.updateNameWithException("haha11",7);
 		actorTestService.testWithoutWx();
 	}
 
@@ -62,8 +62,8 @@ public class TransactionTest {
 	public void testTx2() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("transaction-Test.xml");
 		ActorTestService1 actorTestService = (ActorTestService1) context.getBean("actorTestService1");
-//		actorTestService.updateNameWithTxNested("haha11",7);
-		actorTestService.updateNameWithTxNested("hehe", 7);
+//		actorTestService.updateNameWithException("haha11",7);
+		actorTestService.updateNameWithException("hehe", 7);
 	}
 
 }

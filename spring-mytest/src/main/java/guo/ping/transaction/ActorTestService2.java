@@ -4,7 +4,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public class ActorTestService1 {
+public class ActorTestService2 {
 
 	private IActorService actorService;
 
@@ -17,7 +17,7 @@ public class ActorTestService1 {
 		updateNameWithException("hi", 7);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Transactional(propagation = Propagation.NESTED)
 	public void updateNameWithException(String userName, Integer id){
 		actorService.updateActoe(userName, id);
 		int i = 10 / 0;

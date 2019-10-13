@@ -14,9 +14,14 @@
 	<bean id="actorTestService" class="guo.ping.transaction.ActorTestService">
 		<property name="actorService" ref="actorService" />
 		<property name="actorTestService1" ref="actorTestService1" />
+		<property name="actorTestService2" ref="actorTestService2" />
 	</bean>
 
 	<bean id="actorTestService1" class="guo.ping.transaction.ActorTestService1">
+		<property name="actorService" ref="actorService" />
+	</bean>
+
+	<bean id="actorTestService2" class="guo.ping.transaction.ActorTestService2">
 		<property name="actorService" ref="actorService" />
 	</bean>
 
